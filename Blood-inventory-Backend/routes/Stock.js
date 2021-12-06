@@ -138,35 +138,6 @@ router.delete('/Stocks', (req, res) => {
     .catch((err) => console.log(err));
 });
 
-/*
-const validateTransfer = [
-  check('src')
-    .exists()
-    .withMessage('City Source is required')
-    .isIn(['Marseille', 'Paris', 'Dijon', 'Nice', 'Lille'])
-    .withMessage(
-      'City name should be one of the following cities: Marseille, Paris, Dijon, Nice, Lille'
-    ),
-  check('dest')
-    .exists()
-    .withMessage('City Source is required')
-    .isIn(['Marseille', 'Paris', 'Dijon', 'Nice', 'Lille'])
-    .withMessage(
-      'City name should be one of the following cities: Marseille, Paris, Dijon, Nice, Lille'
-    ),
-  check('fruit')
-    .exists()
-    .withMessage('Fruit name is required')
-    .isIn(['Orange', 'Banana', 'Pomme', 'Fraise', 'Cerise'])
-    .withMessage(
-      'Fruits name should be one of the following: Orange, Banana, Pomme, Fraise, Cerise'
-    ),
-    check('quantity')
-    .exists()
-    .isNumeric()
-    .withMessage('quantity should be Numeric')
-];
-*/
 
 router.post('/TransferStock', async(req,res) => {
 
@@ -188,7 +159,7 @@ router.post('/TransferStock', async(req,res) => {
 
   // if the category exist and it's stock is > than stock to transfer: 
 
-  const find_subcategory = find_category.sub_category.find( sub => sub.name === subcategory_name && sub.stock > stock_to_transfer);
+  const find_subcategory = find_category.sub_category.find( sub => sub.name === subcategory_name && sub.stock >= stock_to_transfer);
   
   if (!find_subcategory) return res.status(404).send({ success: false, message: "The Stock of this Sub-Category doesn't allow to make a Transfer" })
   
