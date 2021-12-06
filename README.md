@@ -103,3 +103,19 @@ You can access the api under localhost:3000
 | `POST` | /api/stocksAdd | Add Stock    |
 | `POST` | /api/TransferStock| Send Stock from Sub_category A(A+) to Sub Category B(B+)  |
 | `GET` | /api/stocks | Get All Stocks  |
+
+## ScreenShots
+
+<div display="flex" align="center">
+ <img src="https://i.imgur.com/wf8qYsr.jpg?raw=true" width="250" maxheight="450">
+ <img src="https://i.imgur.com/RP05ERi.jpg?raw=true" width="250" maxheight="450">
+ <img src="https://i.imgur.com/PH8pImH.jpg?raw=true" width="250" maxheight="450">
+ <p><strong>Home, SignUp And Login Page</strong></p>
+</div>
+
+
+<div display="flex" align="center">
+  <img src="https://i.imgur.com/nyOLsNE.jpg?raw=true" width="250" maxheight="450">
+   <img src="https://i.imgur.com/8p7Fdqt.jpg?raw=true" width="250" maxheight="450">
+ <p><strong>Transfer and Stock Pages</strong></p>
+</div>
