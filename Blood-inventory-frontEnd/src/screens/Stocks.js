@@ -3,6 +3,10 @@ import { useState,useEffect } from 'react';
 import { useIsFocused } from '@react-navigation/native';
 
 import {Button,View, FlatList, ActivityIndicator,Text, StyleSheet,Pressable} from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { mdiWaterPlus } from '@mdi/js';
+import Icon from '@mdi/react'
+import { mdiAccount } from '@mdi/js'
 
 import {BASE_URL} from '../../env';
 import { List } from 'react-native-paper';
@@ -67,16 +71,18 @@ const isFocused = useIsFocused();
           <List.Accordion key={index}
             title={`${city.city_name} ( ${getTotalStockOfCity(city)} )`}
 
-            left={props => <List.Icon {...props} icon="city" />
+            left={props => <List.Icon {...props} icon={'city'} />
             }>
               {city?.blood_stock?.map( (category) => (
                 <List.Accordion key={category._id} style={styles.ListAccordion}
                 title={`${category.category_name} ( ${getTotalStockOfCategory(category)} )`}
-                left={props => <List.Icon {...props} icon='water' />}>
+                left={props => <List.Icon {...props} icon='water' /> }>
                   {category?.sub_category?.map( (subcategory) =>
                         
                         <List.Item key={subcategory._id} style={styles.ListItem} title={`${subcategory.name} ( ${subcategory.stock}) `}
-                        />
+                        left={props => <List.Icon {...props} icon={'water'} /> }
+                        />  
+                        
                   ) }
                 </List.Accordion>            
               ))}
@@ -105,7 +111,8 @@ const styles = StyleSheet.create({
   ListItem:{
     display:"flex",
     alignContent:'space-between',
-    justifyContent:'space-between'
+    justifyContent:'space-between',
+    marginLeft:'25%'
   },
   transferButton:{
     margin:5,
