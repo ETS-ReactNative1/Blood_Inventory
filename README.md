@@ -82,4 +82,30 @@ docker-compose up
 ```
 And Voilà. We're currenly running our Application inside Container using Docker. 
 
+## Docker Potential Errors
 
+- Ports are not available (see Bellow) : 
+
+![Port Problem](https://i.imgur.com/3XA5Hbz.png)
+
+This probably Happen if nodejs is still running and listening to this ports, to avoir this error Go to Task Manager and Look for nodejs then click
+'End Task'
+
+## Built With
+
+* [MongoDb](https://www.mongodb.com/) - NoSQL database
+* [React native](https://reactnative.dev/) - The front-end framework used
+* [Docker](https://www.docker.com/) - Containerization
+* [Nodejs](https://nodejs.org/) - BackEnd 
+
+### You can Access The api under http://localhost:3000
+
+You can access the api under localhost:3000 
+
+| Methods | Urls | Actions |
+| --- | --- | --- |
+| `POST` | /api/users/register | Create a new user |
+| `POST` | //api/users/login | Login to the app  |
+| `POST` | /api/stocksAdd | Add Stock    |
+| `POST` | /api/TransferStock| Send Stock from Sub_category A(A+) to Sub Category B(B+)  |
+| `GET` | /api/stocks | Get All Stocks  |
