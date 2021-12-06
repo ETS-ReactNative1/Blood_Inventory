@@ -2,7 +2,7 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 import { useIsFocused } from '@react-navigation/native';
 
-import {Button,View, FlatList, ActivityIndicator,Text, StyleSheet,Pressable} from 'react-native';
+import {Button,View, ScrollView ,FlatList, ActivityIndicator,Text, StyleSheet,Pressable} from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { mdiWaterPlus } from '@mdi/js';
 import Icon from '@mdi/react'
@@ -53,8 +53,10 @@ const isFocused = useIsFocused();
       }, [isFocused]);
 
       return (
+        <ScrollView style={styles.ViewContainer}>
 
-        <List.Section>
+        
+        <List.Section style={styles.Section}>
 
           <View style={styles.containerPressable}>
           <Pressable style={styles.transferButton} onPress={() => navigation.push('Transfer')}>
@@ -68,7 +70,7 @@ const isFocused = useIsFocused();
 
         {data.map( (city,index) => (
           
-          <List.Accordion key={index}
+          <List.Accordion  key={index}
             title={`${city.city_name} ( ${getTotalStockOfCity(city)} )`}
 
             left={props => <List.Icon {...props} icon={'city'} />
@@ -91,7 +93,7 @@ const isFocused = useIsFocused();
     
         ))}
         </List.Section>
-
+        </ScrollView>
 
 
 
@@ -137,7 +139,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     letterSpacing: 0.25,
     color: '#CC0000',
-  },
+  }
+
 });
 
 export default Stocks;
