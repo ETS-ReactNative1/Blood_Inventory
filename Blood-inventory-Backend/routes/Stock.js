@@ -69,7 +69,8 @@ router.post('/stocksAdd', validateStock,async(req,res) => {
     if(index==-1){
 
       let new_Category = await Stock_city.updateOne({city_name:req.body.city_name},{$addToSet:{blood_stock:ourCategory}});
-      
+            return res.status(200).send({ success: true, message: "Stock Added Successfully"});
+
     }
     // if the category already exist: index > 0
     
